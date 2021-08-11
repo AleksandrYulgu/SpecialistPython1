@@ -29,3 +29,13 @@
 # 20 199.80 Rub.
 
 # TODO: your code here
+
+x = float(input("Ведите цену:"))
+
+if 0 < x <= 105:
+	count = 1
+	while count < 21:
+		print(count, "%.2f"%(x * count), "Rub.")
+		count += 1
+else:
+	print("Не верная цена")
