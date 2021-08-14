@@ -9,4 +9,20 @@
 # 123
 # 1234
 
-# TODO: your code here
+n = int(input("Введите число: "))
+i = 1
+
+for i in range(1, n+1):
+        for j in range(1, i+1):
+            print(j, end='')
+        print('')
+
+
+n = int(input("Введите число: "))
+i = 1
+line = 1
+
+while i <= n:
+    print(line)
+    i += 1
+    line = line * 10 + i
