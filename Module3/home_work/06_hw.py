@@ -1,4 +1,6 @@
 # Данные о товарах на складе хранятся в словаре
+from typing import Dict, List, Union
+
 items = [
     {
         "name": "Кроссовки",
@@ -33,13 +35,45 @@ items = [
 ]
 # Найдите:
 print("Товары на складе представлены брэндами: ")
-
-# TODO: your code here
+brand_list = []
+for i in items:
+    brand_list.append(i.get("brand"))
+print (", ".join(set(brand_list)))
 
 print("На складе больше всего товаров брэнда(ов): ")
 
-# TODO: your code here
+brand_list = []
+counts = []
+best_list = []
+for i in items:
+    brand_list.append(i.get("brand"))
+    for j in brand_list:
+        cou = brand_list.count(j)
+        counts.append(cou)
+        if max(counts) == brand_list.count(j):
+            best_list.append(j)
+print(", ".join(set(best_list)))
+
+
+
 
 print("На складе самый дорогой товар брэнда(ов): ")
+# Вариант 1 он быстрый, но выдает только 1 первый ответ
+#cost_list = []
+#for j in items:
+#    cost_list.append(j["price"])# создаем список со всеми ценами
+#id = cost_list.index(max(cost_list)) #узнаем индекс списка где максимальная цена
 
-# TODO: your code here
+#print(items[id]["brand"])
+
+#Вариант 2 медленный, но выдает все ответы
+brand_list = []
+price_list = []
+for i in items:
+    brand_list.append(i.get("price"))
+    for k in brand_list:
+        price_list.append(k)
+    max_price = max(price_list)
+for a in items:
+    if a["price"] == max_price:
+        print(a["brand"])
