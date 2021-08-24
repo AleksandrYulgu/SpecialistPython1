@@ -5,9 +5,14 @@
 # При решении задачи необходимо использовать функцию расстояния между двумя точками.
 
 def distance(x1, y1, x2, y2):
-    # TODO: тело, которое вы реализовали на практической работе
-    pass
+    return ((x2 - x1)**2 + (y2 - y1)**2)**0.5
+
+def min_line(xa, ya, xb, yb, xc, yc):
+    AB = distance(xa, ya, xb, yb)
+    BC = distance(xb, yb, xc, yc)
+    AC = distance(xa, ya, xc, yc)
+    d = {"AB":AB, "BC":BC, "AC":AC}
+    return min(d, key=d.get)
 
 
-# TODO: your code here
-print("Самый короткий отрезок:", ...)  # Выводим название отрезка, например “АС”.
+print("Самый короткий отрезок:", min_line(0, 1, 0, 5, 0, 8))  # Выводим название отрезка, например “АС”.
