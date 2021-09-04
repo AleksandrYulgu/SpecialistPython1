@@ -5,3 +5,17 @@
 
 # При решении задачи требуется учесть формат входных данных.
 # Если входные данные некорректные, сообщить об этом.
+import sys
+data = "2 12 -45 7 15"
+data2 = []
+numbers = data.split()
+for elem in numbers:
+    try:
+        elem = int(elem)
+    except ValueError:
+        print('Введены не корректные данные')
+        sys.exit()
+    if int(elem) > 0:
+        data2.append(elem)
+
+print(min(data2))
