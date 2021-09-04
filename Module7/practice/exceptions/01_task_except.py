@@ -4,3 +4,27 @@
 # На вход программе подается строка формата nxm (x - латинская буква икс).
 # Пример входных данных: 12x6
 # Если данные вводятся в неверном формате, сообщить об этом и запросить ввод заново.
+
+data = input("Введите стороны прямоугольника в формате n x m:", )
+
+while True:
+    try:
+        data2 = data.split("x")
+        n = int(data2[0])
+        m = int(data2[1])
+        break
+    except ValueError:
+        print("Не верно введены данные")
+        data = input("Введите стороны прямоугольника в формате n x m:", )
+    except IndexError:
+        print("Не хватает еще одной стороны")
+        data = input("Введите стороны прямоугольника в формате n x m:", )
+    except Exception as e:
+        print(f"Что-то пошло не так {e}")
+        data = input("Введите стороны прямоугольника в формате n x m:", )
+
+try:
+    num_q = n//m
+    print(num_q)
+except ZeroDivisionError:
+    print("На ноль делить нельзя")
